@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* fonts.css */
+.josefin { font-family: 'Josefin Sans', sans-serif; }
+.alegreya { font-family: 'Alegreya', serif; }
+.archivo { font-family: 'Archivo', sans-serif; }
+.manrope { font-family: 'Manrope', sans-serif; }
+.merriweather { font-family: 'Merriweather', serif; }
+.montserrat { font-family: 'Montserrat', sans-serif; }
+.oswald { font-family: 'Oswald', sans-serif; }
+.poppins { font-family: 'Poppins', sans-serif; }
+.raleway { font-family: 'Raleway', sans-serif; }
+.signika { font-family: 'Signika Negative', sans-serif; }
+.style-script { font-family: 'Style Script', cursive; }
+.titan-one { font-family: 'Titan One', sans-serif; }
