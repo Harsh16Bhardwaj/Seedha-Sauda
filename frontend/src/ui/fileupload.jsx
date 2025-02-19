@@ -164,14 +164,16 @@ const Fileupload = () => {
                                         onClick={() => handleRemoveFile(index)}
                                     >
                                         Remove
+
                                     </button>
+
                                 </div>
                             </div>
                         ))}
                     </div>)}
                 </div>
 
-                {/* Session Files Section */}
+                {/* Session Files haha got it Section */}
                 <div className='w-full  h-auto min-h-60 md:h-96 md:w-96  hello p-2 bg-gray-200 max-h-screen rounded-lg overflow-y-auto'>
                     <h1 className="text-xl font-semibold mb-3 text-center">Session Files:</h1>
                     <div>
