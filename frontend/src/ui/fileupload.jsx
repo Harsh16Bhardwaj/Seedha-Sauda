@@ -125,12 +125,12 @@ const Fileupload = () => {
     return (
         <>
             <h1 className="text-center text-2xl raleway m-2 text-gray-200 font-bold">Upload File</h1>
-            <div className="p-2 flex items-center gap-x-4">
+            <div className="p-2 flex flex-col md:flex-row items-center gap-y-4 gap-x-4 h-min-screen md:h-auto">
                 {/* File selection form */}
-                <div>
-                    <form className='flex flex-col items-center gap-y-2' onSubmit={(e) => e.preventDefault()}>
+                <div className=''>
+                    <form className='flex  flex-col items-center gap-y-2' onSubmit={(e) => e.preventDefault()}>
                         <input
-                            className='text-gray-300 bg-slate-900 cursor-pointer hover:bg-slate-950 duration-200 p-10 pl-22 text-center rounded-2xl h-72 w-96'
+                            className='text-gray-300  bg-slate-900 cursor-pointer hover:bg-slate-950 duration-200 p-10 pl-22 text-center rounded-2xl w-full  md:h-72 md:w-96'
                             ref={fileInputRef}
                             type="file"
                             onChange={handleFileChange}
@@ -147,7 +147,7 @@ const Fileupload = () => {
                 </div>
 
                 {/* Chosen Files Section */}
-                <div className='bg-neutral-800 border-gray-500 border-2 hello rounded-xl h-96 w-96 p-2 pt-3 overflow-y-auto text-center'>
+                <div className='bg-neutral-800 border-gray-500 border-2 hello rounded-xl w-full max-h-screen  h-auto min-h-60 md:h-96 md:w-96 p-2 pt-3 overflow-y-auto text-center'>
                     <h1 className='mb-3 text-gray-200 text-xl underline underline-offset-2 decoration-1 font-semibold josefin'>Chosen Files:</h1>
                     {loading ? (<h1 className='text-white font-bold text-center text-xl'>Loading...</h1>
                     ) : (<div>
@@ -172,7 +172,7 @@ const Fileupload = () => {
                 </div>
 
                 {/* Session Files Section */}
-                <div className='w-96 h-96 hello p-2 bg-gray-200 rounded-lg overflow-y-auto'>
+                <div className='w-full  h-auto min-h-60 md:h-96 md:w-96  hello p-2 bg-gray-200 max-h-screen rounded-lg overflow-y-auto'>
                     <h1 className="text-xl font-semibold mb-3 text-center">Session Files:</h1>
                     <div>
                         {sessionFiles.map((file, index) => (
