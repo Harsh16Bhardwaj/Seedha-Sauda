@@ -43,14 +43,14 @@ function Session() {
   }, [sessionId]);
 
   useEffect(() => {
-    const url = "http://localhost:5173/session/" + sessionId;
+    const url = "https://seedhe-sauda.vercel.app/session/" + sessionId;
     setLink(url);
 
     QRCode.toDataURL(url)
         .then((url) => setQrCodeDataURL(url))
         .catch((error) => console.error("Error generating QR code:", error));
 
-    const newSocket = io("http://localhost:5000");
+    const newSocket = io("https://seedhe-sauda.vercel.app/");
     setSocket(newSocket);
 
     newSocket.emit("joinSession", sessionId);

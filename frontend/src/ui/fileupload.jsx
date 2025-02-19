@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import "../index.css";
 import "./file.css";
 
-const socket = io('http://localhost:5000'); // ✅ Move socket outside component
+const socket = io('https://seedhe-sauda.vercel.app/'); // ✅ Move socket outside component
 
 const Fileupload = () => {
     const [chosenFiles, setChosenFiles] = useState([]);
@@ -46,7 +46,7 @@ const Fileupload = () => {
         });
 
         try {
-            const response = await axios.post('http://localhost:5000/upload', formData, {
+            const response = await axios.post('https://seedhe-sauda.vercel.app/upload', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             return response.data.files;
