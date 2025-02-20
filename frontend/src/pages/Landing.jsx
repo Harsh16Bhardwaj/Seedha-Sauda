@@ -4,7 +4,7 @@ import { BackgroundLines } from "../ui/background-lines";
 import { Highlight } from "../ui/hero-highlight.jsx";
 import "../index.css";
 import Button from "../ui/button.jsx";
-import Panda from "../../public/panda.png"
+import Panda from "../../public/Panda.png"
 
 function Landing() {
   return (
