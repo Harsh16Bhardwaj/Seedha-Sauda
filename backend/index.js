@@ -41,6 +41,10 @@ app.use("/api/session", sessionRoutes);
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+app.get('/', (req, res) => {
+  res.send('Hello, World!')
+})
+
 // File upload route
 app.post("/upload", upload.array("files"), async (req, res) => {
   if (!req.files || req.files.length === 0) {
