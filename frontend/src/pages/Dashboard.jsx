@@ -13,7 +13,7 @@ const Dashboard = () => {
 
     setTimeout(async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/session/start", {
+        const response = await fetch(`${import.meta.env.VITE_APP_URL}/api/session/start`, {
           method: "POST",
         });
         const data = await response.json();

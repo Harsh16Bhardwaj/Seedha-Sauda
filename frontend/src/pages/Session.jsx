@@ -24,7 +24,7 @@ function Session() {
     const fetchSessionData = async () => {
       try {
         const response = await axios.get(
-            `http://localhost:5000/api/session/time/${sessionId}`
+            `${import.meta.env.VITE_APP_URL}/api/session/time/${sessionId}`
         );
         const sessionCreationTime = new Date(response.data.createdAt).getTime();
         const currentTime = Date.now();
@@ -43,14 +43,14 @@ function Session() {
   }, [sessionId]);
 
   useEffect(() => {
-    const url = "https://seedhe-sauda.vercel.app/session/" + sessionId;
+    const url = `${import.meta.env.VITE_APP_URL}/session` + sessionId;
     setLink(url);
 
     QRCode.toDataURL(url)
         .then((url) => setQrCodeDataURL(url))
         .catch((error) => console.error("Error generating QR code:", error));
 
-    const newSocket = io("https://seedhe-sauda.vercel.app/");
+    const newSocket = io(`${import.meta.env.VITE_APP_URL}`);
     setSocket(newSocket);
 
     newSocket.emit("joinSession", sessionId);
