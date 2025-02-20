@@ -34,9 +34,8 @@ const io = new Server(server, {
 
 // Middleware
 const corsOptions = {
-  origin: 'https://seedha-saudaa.vercel.app',
+  origin: 'https://seedha-saudaa.vercel.app/',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // If you need to send cookies or other credentials
 };
 app.use(express.json());
 app.use("/api/session", sessionRoutes);
