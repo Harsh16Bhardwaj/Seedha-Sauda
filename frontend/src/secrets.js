@@ -1,1 +1,1 @@
-export const backend_url = "hello";
+export const backend_url = "https://seedha-saudaa-api.vercel.app/";

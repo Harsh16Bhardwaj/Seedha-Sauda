@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 import FileUpload from "../ui/fileupload";
 import QRCode from "qrcode";
+import { backend_url } from "../secrets";
 
 function Session() {
   const { sessionId } = useParams(); // Get session ID from the route parameters
@@ -24,7 +25,7 @@ function Session() {
     const fetchSessionData = async () => {
       try {
         const response = await axios.get(
-            `${import.meta.env.VITE_APP_URL}/api/session/time/${sessionId}`
+            `${backend_url}/api/session/time/${sessionId}`
         );
         const sessionCreationTime = new Date(response.data.createdAt).getTime();
         const currentTime = Date.now();
@@ -43,14 +44,14 @@ function Session() {
   }, [sessionId]);
 
   useEffect(() => {
-    const url = `${import.meta.env.VITE_APP_URL}/session` + sessionId;
+    const url = `${backend_url}/session` + sessionId;
     setLink(url);
 
     QRCode.toDataURL(url)
         .then((url) => setQrCodeDataURL(url))
         .catch((error) => console.error("Error generating QR code:", error));
 
-    const newSocket = io(`${import.meta.env.VITE_APP_URL}`);
+    const newSocket = io(`${backend_url}`);
     setSocket(newSocket);
 
     newSocket.emit("joinSession", sessionId);

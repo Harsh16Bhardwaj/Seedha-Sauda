@@ -2,9 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import io from 'socket.io-client';
 import "../index.css";
+import { backend_url } from '../secrets';
 import "./file.css";
 
-const socket = io(`${import.meta.env.VITE_APP_URL}`); // ✅ Move socket outside component
+const socket = io(`${backend_url}`); // ✅ Move socket outside component
 
 const Fileupload = () => {
     const [chosenFiles, setChosenFiles] = useState([]);
@@ -46,7 +47,7 @@ const Fileupload = () => {
         });
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_APP_URL}/upload`, formData, {
+            const response = await axios.post(`${backend_url}/upload`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             return response.data.files;

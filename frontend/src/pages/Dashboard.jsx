@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Share2, Clock, Shield, FileUp } from "lucide-react";
 import BackgroundBeamsWithCollision from "../ui/background-breams.jsx";
+import { backend_url } from "../secrets.js";
 
 const Dashboard = () => {
   const [url, setUrl] = useState("fetching");
@@ -13,7 +14,7 @@ const Dashboard = () => {
 
     setTimeout(async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_APP_URL}/api/session/start`, {
+        const response = await fetch(`${backend_url}/api/session/start`, {
           method: "POST",
         });
         const data = await response.json();
