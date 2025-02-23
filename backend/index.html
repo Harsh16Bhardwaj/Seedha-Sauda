@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0a0a0a;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      .pulsating-div {
+        border-radius: 10px;
+        animation: pulse 5s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0% {
+          background: linear-gradient(45deg, #10b981, #3b82f6); /* Emerald to Blue */
+        }
+        10% {
+          background: linear-gradient(45deg, #34d399, #3b82f6);
+        }
+        20% {
+          background: linear-gradient(45deg, #4ade80, #3b82f6);
+        }
+        30% {
+          background: linear-gradient(45deg, #22c55e, #3b82f6);
+        }
+        40% {
+          background: linear-gradient(45deg, #10b981, #3b82f6);
+        }
+        50% {
+          background: linear-gradient(45deg, #4ade80, #1d4ed8); /* More contrast */
+        }
+        60% {
+          background: linear-gradient(45deg, #34d399, #1d4ed8);
+        }
+        70% {
+          background: linear-gradient(45deg, #22c55e, #1d4ed8);
+        }
+        80% {
+          background: linear-gradient(45deg, #4ade80, #1d4ed8);
+        }
+        90% {
+          background: linear-gradient(45deg, #34d399, #3b82f6);
+        }
+        100% {
+          background: linear-gradient(45deg, #10b981, #3b82f6);
+        }
+      }
+
+      .table-container {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #fff;
+      }
+
+      th {
+        background-color: #031a3e;
+        color: rgb(233, 233, 233);
+      }
+
+      tr:hover {
+        background-color: #0b0b0b;
+      }
+
+      .route-name {
+        color: #10b981;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="text-center px-4">
+      <h1 class="text-7xl decoration-amber-50 underline decoration-1 underline-offset-4 font-bold mb-6 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent tracking-tight">
+        Seedha-Sauda
+      </h1>
+      <div class="pulsating-div">
+        <h2 class="text-black font-bold font-sans">Backend API</h2>
+      </div>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto tracking-wide">
+        Peer to Peer file sharing without any hastle and login
+      </p>
+
+      <div class="table-container">
+        <h3 class="text-2xl font-semibold text-white mb-4">API Routes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Method</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="route-name">/api/session/start</td>
+              <td>POST</td>
+              <td>Start a new session</td>
+            </tr>
+            <tr>
+              <td class="route-name">/api/session/time/:sessionId</td>
+              <td>GET</td>
+              <td>Get the creation time of a session by session ID</td>
+            </tr>
+            <tr>
+              <td class="route-name">/upload</td>
+              <td>POST</td>
+              <td>Upload a single file (for file sharing)</td>
+            </tr>
+            <tr>
+              <td class="route-name">/api/text/upload</td>
+              <td>POST</td>
+              <td>Upload text to a session</td>
+            </tr>
+            <tr>
+              <td class="route-name">/api/text/:id</td>
+              <td>GET</td>
+              <td>Get text content by session ID</td>
+            </tr>
+            <tr>
+              <td class="route-name">/api/file/:id</td>
+              <td>GET</td>
+              <td>Retrieve file by ID (could be based on session ID or filename)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

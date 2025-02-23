@@ -24,6 +24,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+
+//socket.io
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -37,16 +39,18 @@ const corsOptions = {
   origin: 'https://seedha-saudaa.vercel.app/',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
+app.use(cors(corsOptions)); // Apply CORS globally
 app.use(express.json());
 app.use("/api/session", sessionRoutes);
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
 
 // Multer setup for file uploads
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!')
-})
 
 // File upload route
 app.post("/upload", upload.array("files"), async (req, res) => {
@@ -56,7 +60,6 @@ app.post("/upload", upload.array("files"), async (req, res) => {
 
   try {
     const uploadedFiles = [];
-
     for (const file of req.files) {
       const result = await uploadToCloudinary(file);
       uploadedFiles.push({
@@ -105,7 +108,6 @@ const uploadToCloudinary = (file) => {
 // Socket.io logic
 io.on("connection", (socket) => {
   console.log("A user connected");
-
   socket.on("joinSession", (sessionId) => handleJoinSession(socket, sessionId));
   socket.on("sendFile", (sessionId, fileData) => handleSendFile(socket, sessionId, fileData));
 

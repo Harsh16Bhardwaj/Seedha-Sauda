@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 const sessions = {};
 
 const createSession = () => {
@@ -12,18 +12,25 @@ const createSession = () => {
   // Automatically deletes the session after 10 minutes
   setTimeout(() => {
     delete sessions[sessionId];
-    console.log(`Session with ID ${sessionId} has been deleted after 10 minutes.`);
+    console.log(
+      `Session with ID ${sessionId} has been deleted after 10 minutes.`
+    );
   }, 10 * 60 * 1000);
 
   return sessionId;
 };
 
 const getTime = (sessionId) => {
-  if (!sessions[sessionId]) { // Check if session exists first
-    return null; // Return null if the session does not exist
+  try {
+    if (!sessions[sessionId]) {
+      // Check if session exists first
+      return null; // Return null if the session does not exist
+    }
+    const time = sessions[sessionId].createdAt; // Now safe to access
+    return time;
+  } catch (error) {
+    console.log(error.message);
   }
-  const time = sessions[sessionId].createdAt; // Now safe to access
-  return time;
 };
 
 module.exports = { createSession, sessions, getTime };
