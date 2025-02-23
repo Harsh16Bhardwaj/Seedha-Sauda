@@ -41,7 +41,13 @@ const io = new Server(server, {
 //   methods: ["GET", "POST", "PUT", "DELETE"],
 //   credentials: true
 // }));
-app.use(cors({ origin: "*", methods: ["GET", "POST"], credentials: true }));
+app.use(cors({
+  origin: "*", // Allow all origins temporarily
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true,
+}));
+
 
 
 app.use(express.json());
