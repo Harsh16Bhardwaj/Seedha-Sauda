@@ -36,14 +36,14 @@ const io = new Server(server, {
   },
 });
 
-app.use(cors({
-  origin: ["https://seedha-sauda.vercel.app", "http://localhost:5174","http://localhost:5173"], // Add your frontend URL
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true
-}));
+// app.use(cors({
+//   origin: ["https://seedha-sauda.vercel.app", "http://localhost:5174", "http://localhost:5173"],
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   credentials: true
+// }));
+app.use(cors({ origin: "*", methods: ["GET", "POST"], credentials: true }));
 
 
-app.use(cors(corsOptions)); // Apply CORS globally
 app.use(express.json());
 app.use("/api/session", sessionRoutes);
 
