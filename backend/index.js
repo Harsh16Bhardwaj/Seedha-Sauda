@@ -36,15 +36,12 @@ const io = new Server(server, {
   },
 });
 
+app.use(cors({
+  origin: ["https://seedha-sauda.vercel.app", "http://localhost:5174","http://localhost:5173"], // Add your frontend URL
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true
+}));
 
-// Middleware
-const corsOptions = {
-  origin: '*', // Or specify the actual origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers you might be using
-  credentials: true,  // This allows cookies and credentials to be sent, if applicable
-};
-app.use(cors(corsOptions));
 
 app.use(cors(corsOptions)); // Apply CORS globally
 app.use(express.json());

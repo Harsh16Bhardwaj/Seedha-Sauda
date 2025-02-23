@@ -14,7 +14,7 @@ const Dashboard = () => {
 
     setTimeout(async () => {
       try {
-        const response = await fetch(`${backend_url}api/session/start`, {
+        const response = await fetch(`${backend_url}/api/session/start`, {
           method: "POST",
         });
         const data = await response.json();
