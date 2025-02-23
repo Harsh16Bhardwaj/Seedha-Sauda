@@ -36,7 +36,7 @@ const io = new Server(server, {
 
 // Middleware
 const corsOptions = {
-  origin: 'https://seedha-saudaa.vercel.app/',
+  origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 app.use(cors(corsOptions)); // Apply CORS globally
