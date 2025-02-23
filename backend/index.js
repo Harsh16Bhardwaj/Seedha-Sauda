@@ -29,16 +29,23 @@ cloudinary.config({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: '*', // Allow all origins or specify the origin
     methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"], // Allow headers if needed
+    credentials: true,  // Allow credentials (cookies)
   },
 });
 
+
 // Middleware
 const corsOptions = {
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  origin: '*', // Or specify the actual origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add other headers you might be using
+  credentials: true,  // This allows cookies and credentials to be sent, if applicable
 };
+app.use(cors(corsOptions));
+
 app.use(cors(corsOptions)); // Apply CORS globally
 app.use(express.json());
 app.use("/api/session", sessionRoutes);
