@@ -1,0 +1,28 @@
+/* Custom Scrollbar Styles for .hello class */
+.hello::-webkit-scrollbar {
+    width: 10px; /* Scrollbar width */
+    height: 10px; /* Horizontal scrollbar height */
+  }
+  
+  .hello::-webkit-scrollbar-track {
+    background-color: #2c2c2c; /* Dark gray background for the track */
+  }
+  
+  .hello::-webkit-scrollbar-thumb {
+    background-color: #555555; /* Darker gray thumb */
+    border-radius: 10px;
+  }
+  
+  .hello::-webkit-scrollbar-thumb:hover {
+    background-color: #777777; /* Slightly lighter thumb when hovered */
+    cursor:default;
+  }
+  
+  .hello::-webkit-scrollbar-button {
+    display: none; /* Hide the arrows */
+  }
+  
+  .hello::-webkit-scrollbar-corner {
+    background-color: #2c2c2c; /* Keep the corner the same dark color */
+  }
+  
