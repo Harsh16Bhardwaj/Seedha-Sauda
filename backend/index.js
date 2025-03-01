@@ -29,12 +29,13 @@ cloudinary.config({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: '*', // Allow all origins or specify the origin
+    origin: "*",
     methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"], // Allow headers if needed
-    credentials: true,  // Allow credentials (cookies)
+    credentials: true,
   },
+  transports: ["websocket", "polling"], // 💡 Make sure WebSockets are allowed
 });
+
 
 // app.use(cors({
 //   origin: ["https://seedha-sauda.vercel.app", "http://localhost:5174", "http://localhost:5173"],
